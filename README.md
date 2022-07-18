@@ -1,6 +1,9 @@
 # Code and Data for 'Incidence of lead ingestion in managed goose populations and the efficacy of imposed restrictions on the use of lead shot'
 This repository holds the code for a publication that is in review at *Ibis* entitled; 'Incidence of lead ingestion in managed goose populations and the efficacy of imposed restrictions on the use of lead shot'
 
+/github/directory-file-count/LukeOzsanlav/Ibis_2022_Lead
+
+
 _Authors_:
 
 - Aimee Mcintosh 
