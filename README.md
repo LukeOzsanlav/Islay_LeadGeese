@@ -2,7 +2,6 @@
 This repository holds the code for a publication that is in review at *Ibis* entitled; 'Incidence of lead ingestion in managed goose populations and the efficacy of imposed restrictions on the use of lead shot'
 
 ![](https://img.shields.io/github/directory-file-count/LukeOzsanlav/Ibis_2022_lead)
-![](https://img.shields.io/github/v/release/LukeOzsanlav/Ibis_2022_Lead)
 
 _Authors_:
 
