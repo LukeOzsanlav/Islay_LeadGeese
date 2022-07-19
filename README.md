@@ -18,7 +18,8 @@ _Authors_:
 
 
 ## Code description
-- `insert script name`: script description
+- `3) Model variation in Pb.R`: Use a linear mixed model to explain varion in faecal lead fro Barnacle geese *Branta leucopsis* and Greenalnd White-frotned Geese *Anser albifrons flavirostris* on Islay
+- `4) Adjust lead prevelance for retention time`: adjust the prevelance of lead ingestion for retention time which are shorter than the entire wintering period. Accounts for error in retention time using by drawing retention times 1000 times from a poisson distribution
 
-## Code description
-- `insert data name`: data description
+## Data description
+- `Lead_with_ShootingIntensity.csv`: Date used in script 3). Contains faecal lead amounts and all predictor variables, including AL and shooting intenisty around sampling locaiton
