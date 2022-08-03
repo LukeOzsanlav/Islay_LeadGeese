@@ -27,20 +27,20 @@ _Authors_:
 - `4- Simulate retention times.R`: Adjust the prevelance of lead ingestion for retention times which are shorter than the entire wintering period. Accounts for error in retention time using by drawing 1000 random retention times from a poisson distribution
 
 ## Data description
--`Data/Field centroids.csv`: Centroid of each agriculatural field on Islay
+- `Data/Field centroids.csv`: Centroid of each agriculatural field on Islay
 
--`Data/GBG sampling locations.csv`: The field code for each Barnacle Goose faecal sample
+- `Data/GBG sampling locations.csv`: The field code for each Barnacle Goose faecal sample
 
--`Data/GWfG sampling locations.csv`: The field code for each White-fronted Goose faecal sample
+- `Data/GWfG sampling locations.csv`: The field code for each White-fronted Goose faecal sample
 
--`Data/Lead lab analysis.csv`: The faecal lead and aluminium levels from all samples 
+- `Data/Lead lab analysis.csv`: The faecal lead and aluminium levels from all samples 
 
--`Data/Shooting logs cleaned.csv`: Cleaned shootng logs with the location of each shooting event on Islay since 2005
+- `Data/Shooting logs cleaned.csv`: Cleaned shootng logs with the location of each shooting event on Islay since 2005
 
 - `Outputs/LeadData_with_FieldCodes.csv`: Data used in script 2. Lead faecal levels labelled with the field codes and locaiton
 
 - `Outputs/LeadData_with_ShootingInt.csv`: Date used in script 3. Contains faecal lead amounts and all predictor variables, including AL and shooting intenisty around sampling locaiton
 
--`SpatialData/88090_ISLAY_GMS_FIELD_BOUNDARY`: Shapefile of every agricualtural field on Islay
+- `SpatialData/88090_ISLAY_GMS_FIELD_BOUNDARY`: Shapefile of every agricualtural field on Islay
 
--`SpatialData/RAMSAR_SCOTLAND_ESRI` Shapefile of all ramsar designated in Scotland
+- `SpatialData/RAMSAR_SCOTLAND_ESRI` Shapefile of all ramsar designated in Scotland
