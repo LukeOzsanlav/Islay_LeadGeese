@@ -60,6 +60,5 @@ ggplot(data = All_exposure) +
         panel.grid.minor.x = element_blank(), strip.text.x = element_text(size = 12))
 
 ## save the ggplot
-setwd("~/PhD Documents/2_Lead + Shooting/Lead Feacal Analysis")
-ggsave("Percentgae of inddividuals ingesting lead over a winter.png", 
+ggsave("Outputs/Plots/Percentgae of inddividuals ingesting lead over a winter.png", 
        width = 28, height = 22, units = "cm")

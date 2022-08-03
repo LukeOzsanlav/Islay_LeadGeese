@@ -25,12 +25,15 @@ lead <- fread("Outputs/LeadData_with_ShootingInt.csv")
 
 
 
-##
+
+#----------------------------------#
 #### 2.  Models variation in Pb ####
-##
+#----------------------------------#
 
 
+#------------------------#
 #### 2.1 PREPARE DATA ####
+#------------------------#
 
 ## run normal linear model with species interaction
 ## check distribution of response variable
@@ -51,7 +54,10 @@ lead$Shoot_int_sc <- scale(lead$Shoot_int)
 
 
 
+
+#------------------------------#
 #### 2.2 LINEAR MIXED MODEL ####
+#------------------------------#
 
 ## run the linear model
 ## field code and farm code as nested random effects
@@ -61,10 +67,18 @@ modelint <- lmer(log(Pb) ~ log(Al) * Species + Shoot_int_sc + (1|farm_code/Field
                  data = lead, 
                  REML = F)
 
-
-#### 2.3 MODEL CHECKS ####
+## check model
 summary(modelint)
 plot(modelint)
+
+
+
+
+
+#------------------------#
+#### 2.3 MODEL CHECKS ####
+#------------------------#
+
 
 ## check for heteroscadisity, 
 modeltest <- lm(log(Pb) ~ log(Al) * Species + Shoot_int_sc, data = lead)
@@ -92,7 +106,11 @@ plot(ModelhetroPOW)
 
 
 
+
+
+#---------------------------#
 #### 2.4 MODEL INFERENCE ####
+#---------------------------#
 
 ## Run model selection
 ## change default "na.omit" to prevent models being fitted to different datasets
@@ -116,9 +134,10 @@ performance::model_performance(modeltop)
 
 
 
-##
+
+#--------------------------------------#
 #### 3. Plot the output of the model####
-##
+#--------------------------------------#
 
 ## extract the fitted values plus CIs using the effects package
 effect
@@ -156,49 +175,9 @@ ggplot() +
 
 
 
-
-##
-#### 4. Plot regression residuals vs the shooting intensity ####
-##
-
-## First label the 4 GWfG outliers with this simple rule
-lead$outlier <- ifelse(lead$Pb > 12 & lead$Al < 5000, 1, 0)
-
-## Extract the regression residuals from the top model, as selected by MuMin
-## going to just use the fitted vs actual values for the residuals
-newdata <- as.data.frame(lead$Al)
-colnames(newdata)[1] <- "Al"
-pred <- predict(modeltop, newdata, re.form = NA, se = TRUE, type = "response")
-lead$prediction <- pred
-lead$resid_new <- log(lead$Pb) - lead$prediction 
-
-
-
-## plot the residuals vs the shooting intensity
-ggplot() + 
-  geom_point(data=lead, aes(x=Shoot_int, y=resid_new, colour = Species), size =1.8, shape = 21, stroke =1.5) + 
-  ylab("Regression residuals") + xlab("Shooting intensity (Total shots fired)") +
-  theme_bw() +
-  scale_colour_manual(values=c("#D55E00", "#0072B2")) +
-  theme(panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank(), 
-        axis.text=element_text(size=10), axis.title=element_text(size=14, face = "bold"), 
-        plot.title = element_text(size=14, face="bold"), legend.text=element_text(size=12), legend.title=element_text(size=12),
-        panel.grid.minor.x = element_blank(), strip.text.x = element_text(size = 13, face = "bold")) +
-geom_text(data = lead, aes(x=Shoot_int, y=resid_new, label=ifelse(outlier == 1, "*",'')),hjust=1.3, vjust=0.1, size = 4.5) 
-
-
-# ## save the plot
-# setwd("~/PhD Documents/2_Lead + Shooting/Paper plots 17-01-22")
-# ## Save a plot
-# ggsave("FigureX- Pb vs Al with prediction interval.png", 
-#        width = 25, height = 22, units = "cm")
-
-
-
-
-##
-#### 5. Fischer exact test to look at outlier rates between GBG and GWfG ####
-##
+#---------------------------------------------------------------------------#
+#### 4. Fischer exact test to look at outlier rates between GBG and GWfG ####
+#---------------------------------------------------------------------------#
 
 ## create table for chi squared test and run test
 ## This is for the fecal sample anlaysis only
@@ -206,7 +185,7 @@ chi.data <- table(lead$Species, lead$outlier)
 print(chi.data)
 print(fisher.test(chi.data))
 
-##now run one where I input the values myself from all three data sets
+##now run one where I input the values myself from all three data sets (x-ray, post mortem and faecal)
 chi.data[2,] <- c(482,6)
 chi.data[1,] <-c(260,6)
 print(chi.data)
@@ -215,9 +194,10 @@ print(fisher.test(chi.data))
 
 
 
-##
-#### 6. Plot model output with 95% prediction interval and Confidence interval ####
-##
+
+#---------------------------------------------------------------------------------#
+#### 5. Plot model output with 95% prediction interval and Confidence interval ####
+#---------------------------------------------------------------------------------#
 
 ## creates columns with logged Pb and Al
 ## need to do this as the ggeffects package does not like logging variables in the model formula
@@ -232,7 +212,6 @@ modeltop <- lme(logPb ~ logAl,
                 data = lead2, 
                 method = "ML")
 ## or run with gamma model here
-##modeltop <- glmmTMB::glmmTMB(Pb ~ logAl + (1|farm_code/Field_Code), data = lead2, family = Gamma(link = "log"))
 
 ## create 95% Prediction and confidence intervals with the ggeffects packae
 max(lead2$logAl);min(lead2$logAl)
@@ -261,7 +240,6 @@ geom_ribbon(aes(ymin=conf.low, ymax=conf.high),alpha = 0.5, colour = NA, fill = 
 geom_ribbon(aes(ymin=pred.low, ymax=pred.high),alpha = 0.2, colour = NA, fill = "grey") +
 ylab("Pb (mg/kg of dry faeces)") + xlab("Al (mg/kg of dry faeces)") +
 theme_bw() +
-ylim(0,50) +
 scale_colour_manual(values=c("#D55E00", "#0072B2")) +
 geom_text(data = lead, aes(x=Al, y=Pb, label=ifelse(Pb > 12 & Al < 5000, round(Pb, digits = 1),'')),hjust=0.5, vjust=-0.6, size = 3.3) +
 theme(panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank(), 
@@ -270,8 +248,8 @@ theme(panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank()
         panel.grid.minor.x = element_blank(), strip.text.x = element_text(size = 12))
 
 ## save the plot
-setwd("~/PhD Documents/2_Lead + Shooting/Paper plots 17-01-22")
+#setwd("~/PhD Documents/2_Lead + Shooting/Paper plots 17-01-22")
 ## Save a plot
-ggsave("FigureX- Pb vs Al with prediction interval.png", 
+ggsave("Outputs/Plots/Figure5- Pb vs Al with prediction interval.png", 
        width = 25, height = 22, units = "cm")
 
