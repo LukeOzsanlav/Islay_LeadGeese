@@ -1,5 +1,5 @@
 # Code and Data for 'Incidence of lead ingestion in managed goose populations and the efficacy of imposed restrictions on the use of lead shot'
-This repository holds the data and code for a publication that is in review at *Ibis* entitled; 'Incidence of lead ingestion in managed goose populations and the efficacy of imposed restrictions on the use of lead shot'. The data and code provided here should allow anyone to recreate our analysis fully. Simply download the repository and load the R project then run the R scripts in numerical order.
+This repository holds the data and code for a publication that is in review at *Ibis* entitled; 'Incidence of lead ingestion in managed goose populations and the efficacy of imposed restrictions on the use of lead shot'. The data and code provided here should allow anyone to recreate our analysis we outline in the paper. Simply download the repository, load the R project and then run the R scripts in numerical order.
 
 ![](https://img.shields.io/github/directory-file-count/LukeOzsanlav/Ibis_2022_lead)
 
