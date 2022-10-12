@@ -57,11 +57,11 @@ ggplot(data = All_exposure) +
   scale_fill_manual(values=c("#0072B2", "#D55E00")) +
   scale_x_continuous(breaks = seq(0,35, 5)) +
   theme(panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank(), 
-        axis.text=element_text(size=13), axis.title=element_text(size=16), 
-        plot.title = element_text(size=14, face="bold"), legend.text=element_text(size=12), legend.title=element_text(size=12),
-        panel.grid.minor.x = element_blank(), strip.text.x = element_text(size = 12)) +
-  geom_text(data = data.frame(x = 28, y = 410, label = "λ = 20", Species = "GWfG"), 
-            aes(x = x, y = y, label = label), size = 8)
+        axis.text=element_text(size=18), axis.title=element_text(size=22),
+        plot.title = element_text(size=18, face="bold"), legend.text=element_text(size=18), legend.title=element_text(size=22),
+        panel.grid.minor.x = element_blank(), strip.text.x = element_text(size = 18)) # +
+  # geom_text(data = data.frame(x = 28, y = 410, label = "λ = 20", Species = "GWfG"), 
+  #           aes(x = x, y = y, label = label), size = 8)
 
 ## save the ggplot
 ggsave("Outputs/Plots/Percentage of individuals ingesting lead over a winter.png", 
