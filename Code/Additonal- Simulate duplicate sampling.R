@@ -13,11 +13,11 @@ pacman::p_load(tidyverse, svMisc)
 #------------------------#
 
 Pop_size <- 33000 # size of the total population sampled (GBG Isaly population size)
-Flock_size <- 540 # the average flock size from which each round of sampling is conducted on
-Perc_movement <- 5 # the percentage of birds that move from one flock to another in between each sampling round
+Flock_size <- 540 # the average flock size from which each round of sampling is conducted
+Perc_movement <- 10 # the percentage of birds that move from one flock to another in between each sampling round
 Samps_collected <- 4 # the number of samples collected in each round of sampling
-Samp_rounds <- 45 # the total number of sampling rounds to be conducted
-n_sims <- 1000 # number of simulation to run
+Samp_rounds <- 180/Samps_collected # the total number of sampling rounds to be conducted
+n_sims <- 500 # number of simulations to run
 
 
 
@@ -26,7 +26,7 @@ n_sims <- 1000 # number of simulation to run
 #### SET UP SIMULATION ####
 #-------------------------#
 
-## create data frame to put all of the simualtion outputs in
+## create data frame to put all of the simulation outputs in
 Output <- as.data.frame(c(1:n_sims))
 Output$sample <- NA
 
@@ -72,8 +72,9 @@ for(j in 1:n_sims){
 
 
 ## the percentage of duplicates 
-## top row is the number of duplicates and the bottom is the percentage of time this occurs in our simulation rounds
-table(Output$sample)/10
+## top row is the number of duplicate samples collected from the same individual
+## the bottom row is the percentage of the simulations that had the given number of duplciations
+table(Output$sample)/(n_sims/100)
 
 
 

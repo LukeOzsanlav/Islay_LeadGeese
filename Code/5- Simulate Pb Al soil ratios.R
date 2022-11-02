@@ -234,7 +234,7 @@ ggplot() +
   ylab("Pb (mg/kg of dry faeces)") + xlab("Al (mg/kg of dry faeces)") +
   theme_bw() +
   coord_cartesian(ylim=c(0,55)) +
-  scale_colour_manual(values=c("#D55E00", "#0072B2")) +
+  scale_colour_manual(values=c("#0072B2", "#D55E00")) +
   theme(panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank(), 
         axis.text=element_text(size=13), axis.title=element_text(size=17, face = "bold"), 
         plot.title = element_text(size=14, face="bold"), legend.text=element_text(size=12), legend.title=element_text(size=12),
@@ -268,7 +268,7 @@ ggplot() +
   ylab("Pb (mg/kg of dry faeces)") + xlab("Al (mg/kg of dry faeces)") +
   theme_bw() +
   coord_cartesian(ylim=c(0,55)) +
-  scale_colour_manual(values=c("#D55E00", "#0072B2")) +
+  scale_colour_manual(values=c("#0072B2", "#D55E00")) +
   theme(panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank(), 
         axis.text=element_text(size=13), axis.title=element_text(size=17, face = "bold"), 
         plot.title = element_text(size=14, face="bold"), legend.text=element_text(size=12), legend.title=element_text(size=12),
