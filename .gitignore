@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+
+## Don't push the soil sample data as the file sizes are too big
+/SoilData

@@ -8,7 +8,7 @@ library(ggplot2)
 
 
 ## These are the proportion of bird that we identified shot in
-GBG_prev <- (6/482)
+GBG_prev <- (5/482)
 GWfG_prev <- (6/260)
 
 
@@ -64,7 +64,7 @@ ggplot(data = All_exposure) +
   #           aes(x = x, y = y, label = label), size = 8)
 
 ## save the ggplot
-ggsave("Outputs/Plots/Percentage of individuals ingesting lead over a winter.png", 
+ggsave("Outputs/Plots/Fig 7-Percentage of individuals ingesting lead over a winter.png", 
        width = 28, height = 22, units = "cm")
 
 

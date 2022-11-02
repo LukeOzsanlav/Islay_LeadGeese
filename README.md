@@ -27,7 +27,7 @@ _Authors_:
 
 - `4- Simulate retention times.R`: Adjust the prevelance of lead ingestion for retention times which are shorter than the entire wintering period. Accounts for error in retention time using by drawing 1000 random retention times from a poisson distribution
 
-- `5- Simulate duplicate sampling.R`: Run a simulation to try and determine the number of duplicate samples collected in our faecal sampling
+- `6- Simulate duplicate sampling.R`: Run a simulation to determine the number of duplicate samples collected during our faecal sampling protocol
 
 ## Data description
 - `Data/Field centroids.csv`: Centroid of each agriculatural field on Islay
