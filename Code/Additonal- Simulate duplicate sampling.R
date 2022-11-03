@@ -17,7 +17,7 @@ Flock_size <- 540 # the average flock size from which each round of sampling is 
 Perc_movement <- 10 # the percentage of birds that move from one flock to another in between each sampling round
 Samps_collected <- 4 # the number of samples collected in each round of sampling
 Samp_rounds <- 180/Samps_collected # the total number of sampling rounds to be conducted
-n_sims <- 500 # number of simulations to run
+n_sims <- 1000 # number of simulations to run
 
 
 
@@ -40,6 +40,7 @@ birds <- c(1:Pop_size)
 #### RUN SIMULATION ####
 #----------------------#
 
+set.seed(1212) # make simualtion repeatable
 for(j in 1:n_sims){
   
   svMisc::progress(j, max.value = n_sims)
