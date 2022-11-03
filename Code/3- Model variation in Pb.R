@@ -176,7 +176,7 @@ print(chi.data)
 print(fisher.test(chi.data))
 
 ##now run one where I input the values myself from all three data sets (x-ray, post mortem and faecal)
-chi.data[2,] <- c(482,5)
+chi.data[2,] <- c(483,5)
 chi.data[1,] <-c(260,6)
 print(chi.data)
 print(fisher.test(chi.data))

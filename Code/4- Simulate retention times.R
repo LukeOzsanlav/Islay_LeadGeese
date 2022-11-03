@@ -8,7 +8,7 @@ library(ggplot2)
 
 
 ## These are the proportion of bird that we identified shot in
-GBG_prev <- (5/482)
+GBG_prev <- (5/483)
 GWfG_prev <- (6/260)
 
 
