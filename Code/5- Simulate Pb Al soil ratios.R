@@ -47,7 +47,7 @@ LandCov <- raster("SoilData/UKLandCover/lcm2015gb25m.tif") # has the same crs as
 #### 2. Re-project the spatial data ####
 ##------------------------------------##
 
-## Going to reproject all of the spatial dat so that it has the same crs as the soil types map
+## Going to reproject all of the spatial data so that it has the same crs as the soil types map
 
 ## define the target crs
 TargetCrs <- st_crs(SoilType)
@@ -176,8 +176,9 @@ Select_SoilSamp <- Select_SoilSamp %>%
                    left_join(PooSoil_Freq, by = c("mssg2013" = "SoilType"))
 
 ## Now do the re sampling
-set.seed(1212)
-Resamp_SoilSamps <- sample(x = Select_SoilSamp$Ratio, size = 1000, replace = TRUE, prob = Select_SoilSamp$Probability)
+## NO LONGER REQUIRED IN THE ANALYSIS
+# set.seed(1212)
+# Resamp_SoilSamps <- sample(x = Select_SoilSamp$Ratio, size = 1000, replace = TRUE, prob = Select_SoilSamp$Probability)
 
 
 
@@ -246,36 +247,38 @@ ggsave("Outputs/Plots/Sup Fig- Soil Sample AlPb ratio.png",
 
 ## Plot for the re sampled data ##
 
-## Create the ribbon to go in the plot based off of the soil samples 
-RibbonsRE <- data.frame(Al = seq(1, 12500, by = 20))
+## NOT REQUIRED FOR PUBLICATION
 
-## Add lines for the min/max
-RibbonsRE$Ratio025 <- Ribbons$Al/quantile(Resamp_SoilSamps, probs= 0.025)
-RibbonsRE$Ratio975 <- Ribbons$Al/quantile(Resamp_SoilSamps, probs= 0.975)
-RibbonsRE$Mean <- Ribbons$Al/mean(Resamp_SoilSamps)
-
-RibbonsRE$MaxRatio <- Ribbons$Al/min(Resamp_SoilSamps)
-RibbonsRE$MinRatio <- Ribbons$Al/max(Resamp_SoilSamps)
-
-
-## create the plot with raw A/ & Pb from poo and ratio from soil as a ribbon
-ggplot() + 
-  geom_point(data=PooSites, aes(x=Al, y=Pb, colour = Species), size =1.8, shape = 21, stroke =1.5) + 
-  geom_line(data=RibbonsRE, aes(x= Al, y = Mean), size = 1.25, colour = "black")  +
-  geom_ribbon(data = RibbonsRE, aes(x=Al, ymin = Ratio025, ymax = Ratio975), alpha = 0.4, colour = NA, fill = "grey") + 
-  geom_line(data = RibbonsRE, aes(x = Al, y = MaxRatio), linetype = 2) +
-  geom_line(data = RibbonsRE, aes(x = Al, y = MinRatio), linetype = 2) +
-  ylab("Pb (mg/kg of dry faeces)") + xlab("Al (mg/kg of dry faeces)") +
-  theme_bw() +
-  coord_cartesian(ylim=c(0,55)) +
-  scale_colour_manual(values=c("#0072B2", "#D55E00")) +
-  theme(panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank(), 
-        axis.text=element_text(size=13), axis.title=element_text(size=17, face = "bold"), 
-        plot.title = element_text(size=14, face="bold"), legend.text=element_text(size=12), legend.title=element_text(size=12),
-        panel.grid.minor.x = element_blank(), strip.text.x = element_text(size = 13, face = "bold"))
-
-ggsave("Outputs/Plots/Sup Fig- Soil Sample AlPb ratio RESAMPLED.png", 
-       width = 25, height = 22, units = "cm")
+# ## Create the ribbon to go in the plot based off of the soil samples 
+# RibbonsRE <- data.frame(Al = seq(1, 12500, by = 20))
+# 
+# ## Add lines for the min/max
+# RibbonsRE$Ratio025 <- Ribbons$Al/quantile(Resamp_SoilSamps, probs= 0.025)
+# RibbonsRE$Ratio975 <- Ribbons$Al/quantile(Resamp_SoilSamps, probs= 0.975)
+# RibbonsRE$Mean <- Ribbons$Al/mean(Resamp_SoilSamps)
+# 
+# RibbonsRE$MaxRatio <- Ribbons$Al/min(Resamp_SoilSamps)
+# RibbonsRE$MinRatio <- Ribbons$Al/max(Resamp_SoilSamps)
+# 
+# 
+# ## create the plot with raw A/ & Pb from poo and ratio from soil as a ribbon
+# ggplot() + 
+#   geom_point(data=PooSites, aes(x=Al, y=Pb, colour = Species), size =1.8, shape = 21, stroke =1.5) + 
+#   geom_line(data=RibbonsRE, aes(x= Al, y = Mean), size = 1.25, colour = "black")  +
+#   geom_ribbon(data = RibbonsRE, aes(x=Al, ymin = Ratio025, ymax = Ratio975), alpha = 0.4, colour = NA, fill = "grey") + 
+#   geom_line(data = RibbonsRE, aes(x = Al, y = MaxRatio), linetype = 2) +
+#   geom_line(data = RibbonsRE, aes(x = Al, y = MinRatio), linetype = 2) +
+#   ylab("Pb (mg/kg of dry faeces)") + xlab("Al (mg/kg of dry faeces)") +
+#   theme_bw() +
+#   coord_cartesian(ylim=c(0,55)) +
+#   scale_colour_manual(values=c("#0072B2", "#D55E00")) +
+#   theme(panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank(), 
+#         axis.text=element_text(size=13), axis.title=element_text(size=17, face = "bold"), 
+#         plot.title = element_text(size=14, face="bold"), legend.text=element_text(size=12), legend.title=element_text(size=12),
+#         panel.grid.minor.x = element_blank(), strip.text.x = element_text(size = 13, face = "bold"))
+# 
+# ggsave("Outputs/Plots/Sup Fig- Soil Sample AlPb ratio RESAMPLED.png", 
+#        width = 25, height = 22, units = "cm")
 
 
 
@@ -315,5 +318,23 @@ ggsave("Outputs/Plots/Sup Fig- Map of soil sampling sites used.png",
 
 
 
+##-------------------------------------------------##
+#### 9. Plot ratios of AL:Pb in all soil samples ####
+##-------------------------------------------------##
 
+## Add ratios to all of the soil samples
+SoilSamp2 <- filter(SoilSamp, is.na(mssg2013) == F)
 
+## plot the variation in pb across soil types
+ggplot() + 
+  geom_boxplot(data=SoilSamp2, aes(x=nipaqua_pb, y=mssg2013, colour = mssg2013), size =1, shape = 21, show.legend = FALSE) + 
+  ylab("Soil Type") + xlab("Pb mg/kg") +
+  theme_bw() +
+  coord_cartesian(xlim=c(0,500)) +
+  theme(panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank(), 
+        axis.text=element_text(size=13), axis.title=element_text(size=17, face = "bold"), 
+        plot.title = element_text(size=14, face="bold"),
+        panel.grid.minor.x = element_blank(), strip.text.x = element_text(size = 13, face = "bold"))
+
+ggsave("Outputs/Plots/Sup Fig- Variation in Pb by soil type.png", 
+       width = 29, height = 22, units = "cm")
