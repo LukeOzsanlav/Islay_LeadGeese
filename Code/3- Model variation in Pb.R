@@ -240,6 +240,6 @@ theme(panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank()
 ## save the plot
 #setwd("~/PhD Documents/2_Lead + Shooting/Paper plots 17-01-22")
 ## Save a plot
-ggsave("Outputs/Plots/Fig 5-Pb vs Al with prediction interval.png", 
+ggsave("Outputs/Plots/Fig 6-Pb vs Al with prediction interval.png", 
        width = 25, height = 22, units = "cm")
 
