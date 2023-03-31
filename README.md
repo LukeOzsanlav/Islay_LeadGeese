@@ -20,10 +20,10 @@ This repository holds the data and code for a publication in *Ibis* entitled; 'I
 
 *Accepted: 16/03/2023
 
-The published mansuscript can be found here: ![]( https://doi.org/10.1111/ibi.13210)
+The published mansuscript can be found here: [https://doi.org/10.1111/ibi.13210](https://doi.org/10.1111/ibi.13210)
 
 
-## Code description
+## [Code description](Code)
 - `1- Add field codes to lead data.R`: Combine the the faecal lead measurements with the sampling locations
 
 - `2- Calculate shooting intensity for sampling locations.R`: Calculate the cumulative number of lead shots fired in a 1km buffer around the sampling location
@@ -38,7 +38,7 @@ The published mansuscript can be found here: ![]( https://doi.org/10.1111/ibi.13
 
 - `Additonal- Simulate duplicate sampling.R`: Run a simulation to determine the number of duplicate samples collected during our faecal sampling protocol
 
-## Data description
+## [Data description](Data)
 - `Data/Field centroids.csv`: Centroid of each agricultural field on Islay
 
 - `Data/GBG sampling locations.csv`: The field code for each Barnacle Goose faecal sample
