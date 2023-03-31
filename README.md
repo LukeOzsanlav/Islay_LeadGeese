@@ -4,7 +4,7 @@ This repository holds the data and code for a publication in *Ibis* entitled; 'I
 
 ![](https://img.shields.io/github/directory-file-count/LukeOzsanlav/Ibis_2022_lead)
 
-_Authors_:
+## Authors:
 - Aimee L. S. Mcintosh <a itemprop="sameAs" content="https://orcid.org/0000-0002-4975-3682" href="https://orcid.org/0000-0002-4975-3682" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD icon" style="width:1em;margin-right:.5em;"/></a>
 - Luke Ozsanlav-Harris <a itemprop="sameAs" content="https://orcid.org/0000-0003-3889-6722" href="https://orcid.org/0000-0003-3889-6722" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD icon" style="width:1em;margin-right:.5em;"/></a>
 - Mark A. Taggart <a itemprop="sameAs" content="https://orcid.org/0000-0002-0649-8490" href="https://orcid.org/0000-0002-0649-8490" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD icon" style="width:1em;margin-right:.5em;"/></a>
