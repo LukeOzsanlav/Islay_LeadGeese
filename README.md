@@ -18,7 +18,7 @@ This repository holds the data and code for a publication in *Ibis* entitled; 'I
 
 *Major Revisions* received: 13/02/2023
 
-*Accepted: 16/03/2023
+*Accepted*: 16/03/2023
 
 The published mansuscript can be found here: [https://doi.org/10.1111/ibi.13210](https://doi.org/10.1111/ibi.13210)
 
